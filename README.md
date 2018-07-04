@@ -88,15 +88,24 @@ Enter SPDX file destination directory (default: /home/test/dnf/spdx_download):
 You are about to set SPDX file destination directory to "/home/test/dnf/spdx_download". Are you sure[Y/n]?
 
 =================================================================
-Enter SRPM repo directory (default: /home/test/dnf/srpm_repo):
+Enter SRPM repo directory (default: /home/test/dnf/srpm_repo): 
 You are about to set SRPM repo directory to "/home/test/dnf/srpm_repo". Are you sure[Y/n]?
 
 =================================================================
-Enter SRPM file destination directory (default: /home/test/dnf/srpm_download):
+Enter SRPM file destination directory (default: /home/test/dnf/srpm_download): 
 You are about to set SRPM file destination directory to "/home/test/dnf/srpm_download". Are you sure[Y/n]?
 
- /home/test/dnf/.rootfs-x86 is not exist. mkdir /home/test/dnf/.rootfs-x86.
+=================================================================
+Enter RPM repo directory (default: /home/test/dnf/oe_repo): 
+You are about to set RPM repo directory to "/home/test/dnf/oe_repo". Are you sure[Y/n]?
+
+=================================================================
+Enter RPM file destination directory (default: /home/test/dnf/rpm_download): 
+You are about to set RPM file destination directory to "/home/test/dnf/rpm_download". Are you sure[Y/n]?
+
+ /home/test/dnf/.rootfs-x86 is not exist. mkdir /home/test/dnf/.rootfs-x86. 
 Creating repo
+
 
   Note
     - Because dnf-host reads configuration from `pwd`, please make sure the following steps are in the same directory same as you run init.
@@ -108,23 +117,23 @@ After init, then, you can manage packages by TUI or command line.
 
 ### 3.1.3 Manage packages in TUI
 
-
   Dnf TUI(textual user interface) Function is developed for dnf-host. With TUI, it is easy to customize rootfs of target.
   <br/>Note
   <br/>&emsp;Please make sure your screen is at least 24 lines and 80 columns.
-  <br/>&emsp;In "Confirm" interface and "License" interface, you can use "←" or "→" to chose "Yes" or "No", and use "Enter" to confirm.
+  <br/>&emsp;In "Confirm" interface and "License" interface, you can use "←" or "→" to chose "Yes" or "No", and use "Enter" to confirm."F4" can help you back to previous interface
 
   By the following command you can enter the main interface of TUI.
-
   ``` 
       $ dnf-host tui
         ┌────────────────────────┤ Select your operation ├─────────────────────────┐
         │                                                                          │
-        │ Install                                                                  │
-        │ Remove                                                                   │
-        │ Upgrade                                                                  │
-        │ Create source archive                                                    │
-        │ Create spdx archive                                                      │
+        │ Install  --->                                                            │
+        │ Remove  --->                                                             │
+        │ Upgrade  --->                                                            │
+        │ Create binary package archives(rpm)  --->                                │
+        │ Create a source archive(src.rpm)  --->                                   │
+        │ Create an spdx archive(spdx)  --->                                       │
+        │ Create archive(rpm, src.rpm and spdx files)  --->                        │
         │                                                                          │
         │                                                                          │
         │                                                                          │
@@ -134,14 +143,13 @@ After init, then, you can manage packages by TUI or command line.
         │                                                                          │
         │                                                                          │
         │                                                                          │
-        │                                                                          │
-        │ ------------------------------------------------------------------------ │
-        │ SPACE/ENTER:select  I:Info  X:eXit                                       │
         └──────────────────────────────────────────────────────────────────────────┘
-```
+	
+	F5:Info  F9:Exit  F9:Exit
 
+```
 #### (1) dnf-host TUI can help you filter GPLv3.
-&emsp;&emsp;If you select "install" in above, dnf-host will ask you whether you want to install packages
+&emsp;&emsp;If you select "install" and "NEW" in above, dnf-host will ask you whether you want to install packages
 	 with license of GPLv3.
 ```	 
 
@@ -167,25 +175,25 @@ After init, then, you can manage packages by TUI or command line.
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
         │                                                                          │
-        │ [I] acl                                                                  │
-        │ [I] attr                                                                 │
-        │ [*] base-files                                                           │
-        │ [ ] base-passwd                                                          │
-        │ [ ] base-passwd-update                                                   │
-        │ [ ] bash                                                                 │
-        │ [ ] bash-bashbug                                                         │
-        │ [ ] bash-completion                                                      │
-        │ [ ] bash-completion-extra                                                │
-        │ [ ] bash-loadable                                                        │
-        │ [ ] bc                                                                   │
-        │ [ ] bind                                                                 │
+        │ [I] base-files                                                         ↑ │
+        │ [I] ncurses-terminfo-base                                              ▮ │
+        │ [I] libc6                                                              ▒ │
+        │ [I] libacl1                                                            ▒ │
+        │ [I] libattr1                                                           ▒ │
+        │ [I] update-alternatives-opkg                                           ▒ │
+        │ [I] bash                                                               ▒ │
+        │ [I] acl                                                                ▒ │
+        │ [I] libtinfo5                                                          ▒ │
+        │ [*] attr                                                               ▒ │
+        │ [*] base-passwd                                                        ▒ │
+        │ [ ] base-passwd-update                                                 ▒ │
+        │ [ ] bash-bashbug                                                       ↓ │
         │ ------------------------------------------------------------------------ │
-        │ All Packages [3935]    Installed Packages [0]    Selected Packages [0]   │
-        │ ------------------------------------------------------------------------ │
-        │ SPACE/ENTER:select/unselect  A:select/unselect All  R:seaRch N:Next      │
-        │ B:Back  I:Info  X:eXit                                                   │
+        │ All Packages [3935]    Installed Packages [9]    Selected Packages [2]   │
+        │                                                                          │
         └──────────────────────────────────────────────────────────────────────────┘
 
+        F1:select/unselect All  F2:Search  F3:Next  F4:Back  F5:Info  F9:Exit
 
          Note
             - []  Means the package has not been selected or installed. If you want to install it, you can
@@ -193,7 +201,6 @@ After init, then, you can manage packages by TUI or command line.
             - [*] Means the package has been selected and will be installed. If you don't want to install it,
                   you can cancel by pressing Space or Enter.
             - [I] Means the package has been installed in your rootfs.
-            - [N] Next: If you press "N" or "n" in the interface, it will go to the next step.
 
 ```
 
@@ -215,15 +222,14 @@ After init, then, you can manage packages by TUI or command line.
         │                                                                          │
         │                                                                          │
         │                                                                          │
-        │ ------------------------------------------------------------------------ │
-        │ SPACE/ENTER:select/unselect  N:Next  B:Back  I:Info  X:eXit              │
+        │                                                                          │
+        │                                                                          │
         └──────────────────────────────────────────────────────────────────────────┘
-
-        Note
-          You can get details about the package type by pressing "I" or "i".
+	
+	F3:Next  F4:Back  F5:Info  F9:Exit                                        
 ```
 #### (4) Confirm install
-&emsp;&emsp;If you select "N"/"n" in the "license" interface, but there is GPLV3 packages in the dependences,
+&emsp;&emsp;If you select "No" in the "license" interface, but there is GPLV3 packages in the dependences,
 <br>&emsp;&emsp;A dialog box will ask your decision.
 ```
         ┌────────────────────────┤ GPLv3 that be depended ├────────────────────────┐
@@ -242,11 +248,49 @@ After init, then, you can manage packages by TUI or command line.
         │                                                                          │
         │                                                                          │
         │ ------------------------------------------------------------------------ │
-        │ These GPLv3 packages are depended  N:Next  B:Back  X:eXit                │
+        │ These GPLv3 packages are depended                                        │
         └──────────────────────────────────────────────────────────────────────────┘
+	
+	F3:Next  F4:Back  F9:Exit
 
 ```
-#### (5) Remove
+#### (5) Load package file
+&emsp;&emsp;After select "Load package file", when user enter the name of configuration file and enter
+"OK", dnf-host will install the package which the configuration list.
+```
+
+           ┌──────────────────┤   Config File   ├───────────────────┐
+           │                                                        │
+           │ Enter the name of configuration file you wish to load: │
+           │                                                        │
+           │   .config___________________________________________   │
+           │                                                        │
+           │              ┌──────────┐   ┌──────────┐               │
+           │              │    OK    │   │  Cancel  │               │
+           │              └──────────┘   └──────────┘               │
+           │                                                        │
+           │                                                        │
+           └────────────────────────────────────────────────────────┘
+```
+
+#### (6) Reference   
+&emsp;&emsp;In "Select install type" interface, user can choose Reference1 to build busybox based root 
+file system or Reference2 to build systemd based root file system.
+```
+                  ┌───────────┤ Confirm install ├────────────┐
+                  │                                          │
+                  │                                          │
+                  │  Do you want to begin installation?      │
+                  │                                          │
+                  │                                          │
+                  │ ---------------------------------------- │
+                  │          ┌───────┐   ┌──────┐            │
+                  │          │  Yes  │   │  No  │            │
+                  │          └───────┘   └──────┘            │
+                  │                                          │
+                  └──────────────────────────────────────────┘
+```
+#### (7) Remove
 &emsp;&emsp;You can choose the package that you want to upgrade after enter "Remove" in main interface.
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
@@ -263,15 +307,22 @@ After init, then, you can manage packages by TUI or command line.
         │                                                                          │
         │                                                                          │
         │                                                                          │
+        │                                                                          │
+        │                                                                          │
         │ ------------------------------------------------------------------------ │
         │ All Packages [9]    Selected Packages [0]                                │
-        │ ------------------------------------------------------------------------ │
-        │ SPACE/ENTER:select/unselect  A:select/unselect All  R:seaRch N:Next      │
-        │ B:Back  I:Info  X:eXit                                                   │
+        │                                                                          │
         └──────────────────────────────────────────────────────────────────────────┘
+	
+	F1:select/unselect All  F2:Search  F3:Next  F4:Back  F5:Info  F9:Exit
+	
+	Note
+          - []  Means the package could be upgrade and has not been selected. If you want to upgrade it, you can
+                select it by pressing Space or Enter.
+          - [-] Means the package has been selected, installed and will be removed.
 
 ```
-#### (6) Upgrade
+#### (8) Upgrade
 &emsp;&emsp;You can choose the package that you want to upgrade after enter "Upgrade" in main interface.
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
@@ -288,47 +339,109 @@ After init, then, you can manage packages by TUI or command line.
         │                                                                          │
         │                                                                          │
         │                                                                          │
+        │                                                                          │
+        │                                                                          │
         │ ------------------------------------------------------------------------ │
         │ All Packages [6]    Selected Packages [0]                                │
-        │ ------------------------------------------------------------------------ │
-        │ SPACE/ENTER:select/unselect  A:select/unselect All  R:seaRch N:Next      │
-        │ B:Back  I:Info  X:eXit                                                   │
+        │                                                                          │
         └──────────────────────────────────────────────────────────────────────────┘
-
+	
+	F1:select/unselect All  F2:Search  F3:Next  F4:Back  F5:Info  F9:Exit
+	
         Note
           - []  Means the package could be upgrade and has not been selected. If you want to upgrade it, you can
                 select it by pressing Space or Enter.
           - [U] Means the package has been selected, installed and will be upgraded.
 ```
-#### (7) manage source archive & spdx archive
+#### (9) manage source archive & spdx archive
 &emsp;&emsp;You can choose the package that you want to get spdx/srpm archive after enter "Create spdx archive" or "Create spdx archive" in main interface.
 
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
         │                                                                          │
         │ [S] base-files                                                           │
-        │ [S] bash                                                                 │
-        │ [ ] ncurses-terminfo-base                                                │
-        │ [ ] libtinfo5                                                            │
-        │ [ ] update-alternatives-opkg                                             │
+        │ [S] base-passwd                                                          │
+        │ [S] busybox                                                              │
+        │ [ ] busybox-syslog                                                       │
+        │ [ ] busybox-udhcpc                                                       │
+        │ [ ] busybox-udhcpd                                                       │
         │ [ ] libc6                                                                │
-        │                                                                          │
-        │                                                                          │
+        │ [ ] update-alternatives-opkg                                             │
+        │ [ ] update-rc.d                                                          │
         │                                                                          │
         │                                                                          │
         │                                                                          │
         │                                                                          │
         │ ------------------------------------------------------------------------ │
-        │ All Packages [6]    Selected Packages [0]                                │
-        │ ------------------------------------------------------------------------ │
-        │ SPACE/ENTER:select/unselect  A:select/unselect All  R:seaRch N:Next      │
-        │ B:Back  I:Info  X:eXit                                                   │
+        │ All Packages [9]    Selected Packages [3]                                │
+        │                                                                          │
         └──────────────────────────────────────────────────────────────────────────┘
+
+        F1:select/unselect All  F2:Search  F3:Next  F4:Back  F5:Info  F9:Exit
 
         Note
           - []  Means the package has not been selected.
           - [S] Means the package has been selected ,installed and will be used to created.
 ```
+#### (10) manage binary package archives
+&emsp;&emsp;You can choose the package that you want to get binary package archive after enter "Create binary package archives(rpm)" in main interface.
+```
+        ┌────────────────────────────┤ Select package ├────────────────────────────┐
+        │                                                                          │
+        │ [R] base-files                                                           │
+        │ [R] base-passwd                                                          │
+        │ [R] busybox                                                              │
+        │ [ ] busybox-syslog                                                       │
+        │ [ ] busybox-udhcpc                                                       │
+        │ [ ] busybox-udhcpd                                                       │
+        │ [ ] libc6                                                                │
+        │ [ ] update-alternatives-opkg                                             │
+        │ [ ] update-rc.d                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │ ------------------------------------------------------------------------ │
+        │ All Packages [9]    Selected Packages [3]                                │
+        │                                                                          │
+        └──────────────────────────────────────────────────────────────────────────┘
+
+        F1:select/unselect All  F2:Search  F3:Next  F4:Back  F5:Info  F9:Exit
+
+        Note
+          - []  Means the package has not been selected.
+          - [R] Means the package has been selected ,installed and will be used to created.
+```
+#### (11) manage archive
+&emsp;&emsp;You can choose the package that you want to get archive after enter "Create archive(rpm, src.rpm and spdx files)" in main interface.
+```
+        ┌────────────────────────────┤ Select package ├────────────────────────────┐
+        │                                                                          │
+        │ [A] base-files                                                           │
+        │ [A] base-passwd                                                          │
+        │ [A] busybox                                                              │
+        │ [ ] busybox-syslog                                                       │
+        │ [ ] busybox-udhcpc                                                       │
+        │ [ ] busybox-udhcpd                                                       │
+        │ [ ] libc6                                                                │
+        │ [ ] update-alternatives-opkg                                             │
+        │ [ ] update-rc.d                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │ ------------------------------------------------------------------------ │
+        │ All Packages [9]    Selected Packages [3]                                │
+        │                                                                          │
+        └──────────────────────────────────────────────────────────────────────────┘
+
+        F1:select/unselect All  F2:Search  F3:Next  F4:Back  F5:Info  F9:Exit
+
+        Note
+          - []  Means the package has not been selected.
+          - [A] Means the package has been selected ,installed and will be used to created.
+```
+
 ### 3.1.4 Manage packages by command line
 
 After init, you can use dnf-host to manage packages such as using dnf in other Distro (e.g. Fedora)".
