@@ -2,7 +2,7 @@
 ***
 Dandified Yum (DNF) is the next upcoming major version of [Yum](http://yum.baseurl.org/). It does package management using [RPM](http://rpm.org/), [libsolv](https://github.com/openSUSE/libsolv) and [hawkey](https://github.com/rpm-software-management/hawkey) libraries. For metadata handling and package downloads it utilizes [librepo](https://github.com/tojaj/librepo). To process and effectively handle the comps data it uses [libcomps](https://github.com/midnightercz/libcomps).
 
-From yocto2.3, rpm5 and smart are replaced by rpm4 and dnf. So this README is for yocto 2.5 ~ Now.
+From yocto2.3, rpm5 and smart are replaced by rpm4 and dnf. So this README is for yocto 2.5.
 
 # 2. Overview
 ***
@@ -270,7 +270,7 @@ After init, then, you can manage packages by TUI or command line.
 	
 ```
 #### (5) Confirm install
-&emsp;&emsp;If you select "No" in the "license" interface, but there is GPLV3 packages in the dependences,
+&emsp;&emsp;If you select "No" in the "license" interface, but there is GPLV3 packages in the dependencies,
 <br>&emsp;&emsp;a dialog box will ask your decision.
 ```
         ┌────────────────────────┤ GPLv3 that be depended ├────────────────────────┐
@@ -498,7 +498,7 @@ e.g.
 
 #### 3.1.4.1 manage srpm packages & spdx files
 
-If you want to manage manage srpm or spdx you can run "dnf-host install" by adding the following options:
+If you want to manage srpm or spdx you can run "dnf-host install" by adding the following options:
 
    (1) --with-srpm
 ```
