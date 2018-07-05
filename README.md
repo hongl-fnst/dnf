@@ -148,7 +148,33 @@ After init, then, you can manage packages by TUI or command line.
 	F5:Info  F9:Exit  F9:Exit
 
 ```
-#### (1) dnf-host TUI can help you filter GPLv3.
+#### (1) install.
+&emsp;&emsp; After enter into "install",the tui will list to user some way to install package
+```
+        ┌─────────────────────────┤ Select install type ├──────────────────────────┐
+        │                                                                          │
+        │ New  --->                                                                │
+        │ Load package file  --->                                                  │
+        │ Reference1(busybox based root file system)  --->                         │
+        │ Reference2(systemd based root file system)  --->                         │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        │                                                                          │
+        └──────────────────────────────────────────────────────────────────────────┘
+
+        F4:Back  F5:Info  F9:Exit
+
+```
+#### (2) dnf-host TUI can help you filter GPLv3.
 &emsp;&emsp;If you select "install" and "NEW" in above, dnf-host will ask you whether you want to install packages
 	 with license of GPLv3.
 ```	 
@@ -171,7 +197,7 @@ After init, then, you can manage packages by TUI or command line.
        - Yes : GPLv3 packages can be selected as same as the other packages.
  ```
 
- #### (2) customize packages
+ #### (3) customize packages
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
         │                                                                          │
@@ -204,7 +230,7 @@ After init, then, you can manage packages by TUI or command line.
 
 ```
 
-#### (3) customize packages type
+#### (4) customize packages type
 &emsp;&emsp;You can select the package type that you want to install into rootfs.
 ```
         ┌───────────────────┤ Customize special type packages ├────────────────────┐
@@ -228,7 +254,7 @@ After init, then, you can manage packages by TUI or command line.
 	
 	F3:Next  F4:Back  F5:Info  F9:Exit                                        
 ```
-#### (4) Confirm install
+#### (5) Confirm install
 &emsp;&emsp;If you select "No" in the "license" interface, but there is GPLV3 packages in the dependences,
 <br>&emsp;&emsp;A dialog box will ask your decision.
 ```
@@ -254,7 +280,7 @@ After init, then, you can manage packages by TUI or command line.
 	F3:Next  F4:Back  F9:Exit
 
 ```
-#### (5) Load package file
+#### (6) Load package file
 &emsp;&emsp;After select "Load package file", when user enter the name of configuration file and enter
 "OK", dnf-host will install the package which the configuration list.
 ```
@@ -273,7 +299,7 @@ After init, then, you can manage packages by TUI or command line.
            └────────────────────────────────────────────────────────┘
 ```
 
-#### (6) Reference   
+#### (7) Reference   
 &emsp;&emsp;In "Select install type" interface, user can choose Reference1 to build busybox based root 
 file system or Reference2 to build systemd based root file system.
 ```
@@ -290,7 +316,7 @@ file system or Reference2 to build systemd based root file system.
                   │                                          │
                   └──────────────────────────────────────────┘
 ```
-#### (7) Remove
+#### (8) Remove
 &emsp;&emsp;You can choose the package that you want to upgrade after enter "Remove" in main interface.
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
@@ -322,7 +348,7 @@ file system or Reference2 to build systemd based root file system.
           - [-] Means the package has been selected, installed and will be removed.
 
 ```
-#### (8) Upgrade
+#### (9) Upgrade
 &emsp;&emsp;You can choose the package that you want to upgrade after enter "Upgrade" in main interface.
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
@@ -353,7 +379,7 @@ file system or Reference2 to build systemd based root file system.
                 select it by pressing Space or Enter.
           - [U] Means the package has been selected, installed and will be upgraded.
 ```
-#### (9) manage source archive & spdx archive
+#### (10) manage source archive & spdx archive
 &emsp;&emsp;You can choose the package that you want to get spdx/srpm archive after enter "Create spdx archive" or "Create spdx archive" in main interface.
 
 ```
@@ -383,7 +409,7 @@ file system or Reference2 to build systemd based root file system.
           - []  Means the package has not been selected.
           - [S] Means the package has been selected ,installed and will be used to created.
 ```
-#### (10) manage binary package archives
+#### (11) manage binary package archives
 &emsp;&emsp;You can choose the package that you want to get binary package archive after enter "Create binary package archives(rpm)" in main interface.
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
@@ -412,7 +438,7 @@ file system or Reference2 to build systemd based root file system.
           - []  Means the package has not been selected.
           - [R] Means the package has been selected ,installed and will be used to created.
 ```
-#### (11) manage archive
+#### (12) manage archive
 &emsp;&emsp;You can choose the package that you want to get archive after enter "Create archive(rpm, src.rpm and spdx files)" in main interface.
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
