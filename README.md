@@ -145,7 +145,7 @@ After init, then, you can manage packages by TUI or command line.
         │                                                                          │
         └──────────────────────────────────────────────────────────────────────────┘
 	
-	F5:Info  F9:Exit
+        F5:Info  F9:Exit
 
 ```
 #### (1) install
