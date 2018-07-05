@@ -2,7 +2,7 @@
 ***
 Dandified Yum (DNF) is the next upcoming major version of [Yum](http://yum.baseurl.org/). It does package management using [RPM](http://rpm.org/), [libsolv](https://github.com/openSUSE/libsolv) and [hawkey](https://github.com/rpm-software-management/hawkey) libraries. For metadata handling and package downloads it utilizes [librepo](https://github.com/tojaj/librepo). To process and effectively handle the comps data it uses [libcomps](https://github.com/midnightercz/libcomps).
 
-From yocto2.3, rpm5 and smart are replaced by rpm4 and dnf. So this README is for yocto 2.3 ~ Now.
+From yocto2.3, rpm5 and smart are replaced by rpm4 and dnf. So this README is for yocto 2.5 ~ Now.
 
 # 2. Overview
 ***
@@ -108,7 +108,7 @@ Creating repo
 
 
   Note
-    - Because dnf-host reads configuration from `pwd`, please make sure the following steps are in the same directory same as you run init.
+    - Because dnf-host reads configuration from `pwd`, please make sure the above steps are in the same directory same as you run init.
     - Dnf-host will save what you have done continuous until you run init again.
 
 ```
@@ -119,8 +119,8 @@ After init, then, you can manage packages by TUI or command line.
 
   Dnf TUI(textual user interface) Function is developed for dnf-host. With TUI, it is easy to customize rootfs of target.
   <br/>Note
-  <br/>&emsp;Please make sure your screen is at least 24 lines and 80 columns.
-  <br/>&emsp;In "Confirm" interface and "License" interface, you can use "←" or "→" to chose "Yes" or "No", and use "Enter" to confirm."F4" can help you back to previous interface
+  <br/>&emsp;- Please make sure your screen is at least 24 lines and 80 columns.
+  <br/>&emsp;- In "Confirm" interface and "License" interface, you can use "←" or "→" to choose "Yes" or "No", and use "Enter" to confirm. "F4" can help you back to previous interface.
 
   By the following command you can enter the main interface of TUI.
   ``` 
@@ -145,11 +145,11 @@ After init, then, you can manage packages by TUI or command line.
         │                                                                          │
         └──────────────────────────────────────────────────────────────────────────┘
 	
-	F5:Info  F9:Exit  F9:Exit
+	F5:Info  F9:Exit
 
 ```
-#### (1) install.
-&emsp;&emsp; After enter into "install",the tui will list to user some way to install package
+#### (1) install
+&emsp;&emsp; After enter into "install",the tui will list to user some way to install package.
 ```
         ┌─────────────────────────┤ Select install type ├──────────────────────────┐
         │                                                                          │
@@ -174,14 +174,14 @@ After init, then, you can manage packages by TUI or command line.
         F4:Back  F5:Info  F9:Exit
 	
 	Note
-          - New : user can use it to install new package
-          - Load package file : package samples for user
+          - New : user can use it to install new package.
+          - Load package file : package samples for user.
 	  - Reference : Now we predefined two samples for base root file system. When you choose busybox, 
 	    these packages will be installed in your rootfs, it’s a minimal bootable rootfs with busybox 
 	    as the initialization manager.
 
 ```
-#### (2) dnf-host TUI can help you filter GPLv3.
+#### (2) dnf-host TUI can help you filter GPLv3
 &emsp;&emsp;If you select "install" and "NEW" in above, dnf-host will ask you whether you want to install packages
 	 with license of GPLv3.
 ```	 
@@ -261,17 +261,17 @@ After init, then, you can manage packages by TUI or command line.
 	
 	F3:Next  F4:Back  F5:Info  F9:Exit 
 	
-	-  locale:Language pack
-        -  dev   :provide header files for other software
-	-  doc   : document
-	-  dbg   : debug file
+	-  locale :Language pack
+        -  dev :provide header files for other software
+	-  doc : document
+	-  dbg : debug file
 	-  staticdev ：static compilation file
 	-  ptest : Python unit testing framework
 	
 ```
 #### (5) Confirm install
 &emsp;&emsp;If you select "No" in the "license" interface, but there is GPLV3 packages in the dependences,
-<br>&emsp;&emsp;A dialog box will ask your decision.
+<br>&emsp;&emsp;a dialog box will ask your decision.
 ```
         ┌────────────────────────┤ GPLv3 that be depended ├────────────────────────┐
         │                                                                          │
@@ -421,7 +421,7 @@ file system or Reference2 to build systemd based root file system.
 
         Note
           - []  Means the package has not been selected.
-          - [S] Means the package has been selected ,installed and will be used to created.
+          - [S] Means the package has been selected, installed and will be used to created.
 ```
 #### (11) manage binary package archives
 &emsp;&emsp;You can choose the package that you want to get binary package archive after enter "Create binary package archives(rpm)" in main interface.
@@ -450,7 +450,7 @@ file system or Reference2 to build systemd based root file system.
 
         Note
           - []  Means the package has not been selected.
-          - [R] Means the package has been selected ,installed and will be used to created.
+          - [R] Means the package has been selected, installed and will be used to created.
 ```
 #### (12) manage archive
 &emsp;&emsp;You can choose the package that you want to get archive after enter "Create archive(rpm, src.rpm and spdx files)" in main interface.
@@ -479,12 +479,12 @@ file system or Reference2 to build systemd based root file system.
 
         Note
           - []  Means the package has not been selected.
-          - [A] Means the package has been selected ,installed and will be used to created.
+          - [A] Means the package has been selected, installed and will be used to created.
 ```
 
 ### 3.1.4 Manage packages by command line
 
-After init, you can use dnf-host to manage packages such as using dnf in other Distro (e.g. Fedora)".
+After init, you can use dnf-host to manage packages such as using dnf in other Distro (e.g. Fedora).
 
 More information please reference to https://fedoraproject.org/wiki/DNF?rd=Dnf.
 
@@ -498,7 +498,7 @@ e.g.
 
 #### 3.1.4.1 manage srpm packages & spdx files
 
-manage srpm or spdx when you run "dnf-host install" by add the following option:
+If you want to manage manage srpm or spdx you can run "dnf-host install" by adding the following options:
 
    (1) --with-srpm
 ```
@@ -517,9 +517,9 @@ manage srpm or spdx when you run "dnf-host install" by add the following option:
       bash-4.3.30.spdx
 ```
 
-manage srpm or spdx only
+#### 3.1.4.2 manage srpm or spdx only
 
-If you want to manage srpm or spdx files without installation, you can use the subcommand as following:
+If you want to manage srpm or spdx files without installation, you can use the subcommands as following:
 <br>(1) fetchsrpm
 ```
       $ dnf-host fetchsrpm bash
