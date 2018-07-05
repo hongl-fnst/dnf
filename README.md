@@ -261,8 +261,8 @@ After init, then, you can manage packages by TUI or command line.
 	
 	F3:Next  F4:Back  F5:Info  F9:Exit 
 	
-	-  locale :Language pack
-        -  dev :provide header files for other software
+	-  locale : Language pack
+        -  dev : provide header files for other software
 	-  doc : document
 	-  dbg : debug file
 	-  staticdev ：static compilation file
