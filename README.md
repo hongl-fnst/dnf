@@ -23,7 +23,7 @@ Now, dnf can be used both on host and target(e.g. an arm board) environment.
 Make sure you have prepared the following:
   * toolchain(mandatory)
   * rpm packages(mandatory)
-  * sprpm packages(optional)
+  * srpm packages(optional)
   * spdx files(optional)
 
   Note
@@ -31,10 +31,10 @@ Make sure you have prepared the following:
   * Run as a non-root user that has sudo authority.
 
 #### (1) toolchain
-&emsp;&emsp;install the cross-development toolchain(e.g. for i586: poky-glibc-x86_64-meta-toolchain-i586-toolchain-2.4.1.sh) and set up environment of toolchain.
+&emsp;&emsp;install the cross-development toolchain(e.g. for i586: poky-glibc-x86_64-meta-toolchain-i586-toolchain-2.5 .sh) and set up environment of toolchain.
 ```
-      $ sh poky-glibc-x86_64-meta-toolchain-i586-toolchain-2.4.1.sh
-      $ . /opt/poky/2.4.1/environment-setup-i586-poky-linux
+      $ sh poky-glibc-x86_64-meta-toolchain-i586-toolchain-2.5.sh
+      $ . /opt/poky/2.5/environment-setup-i586-poky-linux
       Note
         - When you compilering toochain, make sure you have patched the patch of patches-yocto.
         - If you change a terminal, you should source toolchain again.
@@ -172,6 +172,13 @@ After init, then, you can manage packages by TUI or command line.
         └──────────────────────────────────────────────────────────────────────────┘
 
         F4:Back  F5:Info  F9:Exit
+	
+	Note
+          - New : user can use it to install new package
+          - Load package file : package samples for user
+	  - Reference : Now we predefined two samples for base root file system. When you choose busybox, 
+	    these packages will be installed in your rootfs, it’s a minimal bootable rootfs with busybox 
+	    as the initialization manager.
 
 ```
 #### (2) dnf-host TUI can help you filter GPLv3.
@@ -252,7 +259,15 @@ After init, then, you can manage packages by TUI or command line.
         │                                                                          │
         └──────────────────────────────────────────────────────────────────────────┘
 	
-	F3:Next  F4:Back  F5:Info  F9:Exit                                        
+	F3:Next  F4:Back  F5:Info  F9:Exit 
+	
+	-  locale:Language pack
+        -  dev   :provide header files for other software
+	-  doc   : document
+	-  dbg   : debug file
+	-  staticdev ：static compilation file
+	-  ptest : Python unit testing framework
+	
 ```
 #### (5) Confirm install
 &emsp;&emsp;If you select "No" in the "license" interface, but there is GPLV3 packages in the dependences,
@@ -381,7 +396,6 @@ file system or Reference2 to build systemd based root file system.
 ```
 #### (10) manage source archive & spdx archive
 &emsp;&emsp;You can choose the package that you want to get spdx/srpm archive after enter "Create spdx archive" or "Create spdx archive" in main interface.
-
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
         │                                                                          │
