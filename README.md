@@ -82,48 +82,48 @@ The system will read the repodata from the directory.
 Enter rootfs destination directory (default: /opt/ubq/devkit/x86): 
 You are about to set rootfs destination directory to "/opt/ubq/devkit/x86". Are you sure[Y/n]?
 ```
-Save the rootfs to rootfs destination directory
+Save the rootfs to rootfs destination directory.
 
 ```
 =================================================================
 Enter SPDX repo directory (default: /home/test/dnf/spdx_repo): 
 You are about to set SPDX repo directory to "/home/test/dnf/spdx_repo". Are you sure[Y/n]?
 ```
-Read the SPDX repodata form the directory
+Read the SPDX repodata form the directory.
 
 ```
 =================================================================
 Enter SPDX file destination directory (default: /home/test/dnf/spdx_download): 
 You are about to set SPDX file destination directory to "/home/test/dnf/spdx_download". Are you sure[Y/n]?
 ```
-Save the SPDX file to the directory
+Save the SPDX file to the directory.
 ```
 =================================================================
 Enter SRPM repo directory (default: /home/test/dnf/srpm_repo): 
 You are about to set SRPM repo directory to "/home/test/dnf/srpm_repo". Are you sure[Y/n]?
 ```
-Read the SRPM repodata form the directory
+Read the SRPM repodata form the directory.
 
 ```
 =================================================================
 Enter SRPM file destination directory (default: /home/test/dnf/srpm_download): 
 You are about to set SRPM file destination directory to "/home/test/dnf/srpm_download". Are you sure[Y/n]?
 ```
-Save the SRPM file to the directory
+Save the SRPM file to the directory.
 
 ```
 =================================================================
 Enter RPM repo directory (default: /home/test/dnf/oe_repo): 
 You are about to set RPM repo directory to "/home/test/dnf/oe_repo". Are you sure[Y/n]?
 ```
-Read the RPM repodata form the directory
+Read the RPM repodata form the directory.
 
 ```
 =================================================================
 Enter RPM file destination directory (default: /home/test/dnf/rpm_download): 
 You are about to set RPM file destination directory to "/home/test/dnf/rpm_download". Are you sure[Y/n]?
 ```
-Save the RPM file to the directory
+Save the RPM file to the directory.
 
 ```
  /home/test/dnf/.rootfs-x86 is not exist. mkdir /home/test/dnf/.rootfs-x86. 
@@ -202,7 +202,7 @@ After init, then, you can manage packages by TUI or command line.
 	    as the initialization manager.
 
 ```
-##### (1) dnf-host TUI can help you filter GPLv3
+##### 1. dnf-host TUI can help you filter GPLv3
 &emsp;&emsp;If you select "install" and "NEW" in above, dnf-host will ask you whether you want to install packages
 	 with license of GPLv3.
 ```	 
@@ -225,7 +225,7 @@ After init, then, you can manage packages by TUI or command line.
        - Yes : GPLv3 packages can be selected as same as the other packages.
  ```
 
- ##### (2) customize packages
+ ##### 2. customize packages
 ```
         ┌────────────────────────────┤ Select package ├────────────────────────────┐
         │                                                                          │
@@ -258,7 +258,7 @@ After init, then, you can manage packages by TUI or command line.
 
 ```
 
-##### (3) customize packages type
+##### 3. customize packages type
 &emsp;&emsp;You can select the package type that you want to install into rootfs.
 ```
         ┌───────────────────┤ Customize special type packages ├────────────────────┐
@@ -290,7 +290,7 @@ After init, then, you can manage packages by TUI or command line.
 	-  ptest : Python unit testing framework
 	
 ```
-##### (4) Confirm install
+##### 4. Confirm install
 &emsp;&emsp;If you select "No" in the "license" interface, but there is GPLV3 packages in the dependencies,
 <br>&emsp;&emsp;a dialog box will ask your decision.
 ```
@@ -316,7 +316,7 @@ After init, then, you can manage packages by TUI or command line.
 	F3:Next  F4:Back  F9:Exit
 
 ```
-##### (5) Load package file
+##### 5. Load package file
 &emsp;&emsp;After select "Load package file", when user enter the name of configuration file and enter
 "OK", dnf-host will install the package which the configuration list.
 ```
@@ -335,7 +335,7 @@ After init, then, you can manage packages by TUI or command line.
            └────────────────────────────────────────────────────────┘
 ```
 
-##### (6) Reference   
+##### 6. Reference   
 &emsp;&emsp;In "Select install type" interface, user can choose Reference1 to build busybox based root 
 file system or Reference2 to build systemd based root file system.
 ```
