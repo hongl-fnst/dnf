@@ -68,49 +68,70 @@ Make sure you have prepared the following:
 
 If you want to ctreate an empty rootfs, you have to run "dnf-host init".
 
-```
 $ dnf-host init
+```
 Deleting temp rootfs......
 =================================================================
 Enter repo directory (default: /home/test/dnf/oe_repo): 
 You are about to set repo directory to "/home/test/dnf/oe_repo". Are you sure[Y/n]?
+```
+The system will read the repodata from the directory.
 
+```
 =================================================================
 Enter rootfs destination directory (default: /opt/ubq/devkit/x86): 
 You are about to set rootfs destination directory to "/opt/ubq/devkit/x86". Are you sure[Y/n]?
+```
+Save the rootfs to rootfs destination directory
 
+```
 =================================================================
 Enter SPDX repo directory (default: /home/test/dnf/spdx_repo): 
 You are about to set SPDX repo directory to "/home/test/dnf/spdx_repo". Are you sure[Y/n]?
+```
+Read the SPDX repodata form the directory
 
+```
 =================================================================
 Enter SPDX file destination directory (default: /home/test/dnf/spdx_download): 
 You are about to set SPDX file destination directory to "/home/test/dnf/spdx_download". Are you sure[Y/n]?
-
+```
+Save the SPDX file to the directory
+```
 =================================================================
 Enter SRPM repo directory (default: /home/test/dnf/srpm_repo): 
 You are about to set SRPM repo directory to "/home/test/dnf/srpm_repo". Are you sure[Y/n]?
+```
+Read the SRPM repodata form the directory
 
+```
 =================================================================
 Enter SRPM file destination directory (default: /home/test/dnf/srpm_download): 
 You are about to set SRPM file destination directory to "/home/test/dnf/srpm_download". Are you sure[Y/n]?
+```
+Save the SRPM file to the directory
 
+```
 =================================================================
 Enter RPM repo directory (default: /home/test/dnf/oe_repo): 
 You are about to set RPM repo directory to "/home/test/dnf/oe_repo". Are you sure[Y/n]?
+```
+Read the RPM repodata form the directory
 
+```
 =================================================================
 Enter RPM file destination directory (default: /home/test/dnf/rpm_download): 
 You are about to set RPM file destination directory to "/home/test/dnf/rpm_download". Are you sure[Y/n]?
+```
+Save the RPM file to the directory
 
+```
  /home/test/dnf/.rootfs-x86 is not exist. mkdir /home/test/dnf/.rootfs-x86. 
 Creating repo
-
 
   Note
     - Because dnf-host reads configuration from `pwd`, please make sure the above steps are in the same directory same as you run init.
     - Dnf-host will save what you have done continuous until you run init again.
-
 ```
 
 After init, then, you can manage packages by TUI or command line.
