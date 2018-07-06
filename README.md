@@ -181,7 +181,7 @@ After init, then, you can manage packages by TUI or command line.
 	    as the initialization manager.
 
 ```
-#### (2) dnf-host TUI can help you filter GPLv3
+##### (2) dnf-host TUI can help you filter GPLv3
 &emsp;&emsp;If you select "install" and "NEW" in above, dnf-host will ask you whether you want to install packages
 	 with license of GPLv3.
 ```	 
